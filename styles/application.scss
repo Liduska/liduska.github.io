@@ -1,0 +1,231 @@
+
+@import "variables";
+
+@import "normalize";
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+
+@import "footer";
+
+@import "fontello";
+
+body, html {
+  height: 100%;
+}
+
+@mixin margin-bottom($number, $leading) {
+  margin-bottom: #{$number * $leading + 'rem'};
+}
+
+@mixin font-size($number, $leading) {
+  font-size: #{$number * $leading + 'rem'};
+}
+
+h1, h2 {
+  font-weight: normal;
+  @include font-size(2, $heading-line-height);
+}
+
+.yellow {
+  color: $yellow;
+}
+
+section {
+  @include outer-container;
+  @include pad();
+}
+
+.flex {
+  @include align-items(center);
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(center);
+
+  @include media($large-screen) {
+    @include flex-direction(row);
+    @include justify-content(flex-start);
+  }
+}
+
+.flex-space-between {
+  @include justify-content(space-between);
+}
+
+.flex-center {
+  @include justify-content(center);
+}
+
+.flex-wrap {
+  @include flex-wrap(wrap);
+}
+
+.flex-items-pad-1 > div {
+  @include pad();
+}
+
+.flex-items-marg-1 > * {
+  margin: auto 1rem;
+}
+
+.content-panel {
+  background-color: $panel-color;
+  color: #fff;
+
+  h2 {
+    color: #fff;
+  }
+}
+
+.panels {
+  text-align: center;
+  li {
+    width: 16rem;
+    display: block;
+    line-height: 1.2;
+    @include pad(0.50rem);
+    margin: 1rem;
+    border: 2.5px solid #C92929;
+  }
+}
+
+#heading-container {
+  position: relative;
+}
+
+#drawing {
+  @include media($x-large-screen) {
+    position: absolute;
+  }
+  display: block;
+  width: 45rem;
+  bottom: -26px;
+  margin-bottom: 0.50rem;
+  right: 0;
+}
+
+#heading {
+  text-align: center;
+  font-family: $heading-font-family;
+
+  .title {
+    margin-top: #{2.5 * $heading-line-height + 'rem'};
+    @include media($large-screen) {
+      @include span-columns(6);
+    }
+
+    h1 {
+      @include font-size(2, $heading-line-height);
+      @include margin-bottom(2.8, $heading-line-height);
+    }
+
+    h2 {
+      @include font-size(3.5, $heading-line-height);
+      @include margin-bottom(1, $heading-line-height);
+
+      span {
+        color: $yellow;
+      }
+    }
+  }
+
+}
+
+.jumbo {
+  text-align: center;
+  font-family: $heading-font-family;
+  @include font-size(2, $heading-line-height);
+  @include pad(0.5rem);
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+#clients {
+  text-align: center;
+
+  .row {
+    @include media($large-screen) {
+      @include row();
+    }
+  }
+
+  .client-icon {
+    width: 45px;
+    }
+
+  .col {
+    @include pad();
+
+    @include media($large-screen) {
+      @include span-columns(4);
+    }
+  }
+
+  img {
+    margin: 1rem 2rem;
+    max-height: 5rem;
+  }
+}
+
+#contact {
+  padding-bottom: 0.2rem;
+
+  .contacts {
+    p {
+      margin: 1rem;
+    }
+    a {
+      color: $base-font-color;
+      @include transition(all 0.3s ease-in-out);
+
+      &:active,
+      &:focus,
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  img {
+    margin-right: 1rem;
+  }
+}
+
+#mail {
+  padding-top: 0;
+}
+
+.horizontal-line {
+  display: block;
+  max-width: 25vw;
+  margin: 3rem auto;
+}
+
+.hire-me {
+  margin: 1rem 0;
+  text-align: center;
+
+  a {
+    @extend .button;
+    font-family: $heading-font-family;
+    @include font-size(1.5, $heading-line-height);
+    color: $base-font-color;
+  }
+}
+
+.pricelist-link {
+  width: 16rem;
+  display: block;
+  line-height: 1.2;
+  @include pad(0.50rem);
+  margin: 1rem;
+  border: 2.5px solid #C92929;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    color: #fff;
+    background-color: #C92929;
+  }
+}
